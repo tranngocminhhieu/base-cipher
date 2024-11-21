@@ -21,7 +21,7 @@ Encrypt and decrypt text with ease using the BaseCipher class:
 from basecipher import BaseCipher
 
 # Initialize with a secret salt
-bc = BaseCipher(salt="Keep it secret")
+bc = BaseCipher(key="Keep it secret")
 plaintext = "Hello world!"
 
 # Encrypt the plaintext

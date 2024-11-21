@@ -3,16 +3,16 @@ import base58
 import hashlib
 
 class BaseCipher:
-    def __init__(self, salt: str):
+    def __init__(self, key: str):
         """
         Encrypt and Decrypt with AES.MODE_CTR.
         Use Base58 for shorter output.
         :param salt: Any string, used to derive the key and nonce.
         """
-        if not salt:
-            raise ValueError("Salt must not be empty.")
+        if not key:
+            raise ValueError("Key must not be empty.")
         # Derive key and fixed part of nonce
-        self.key = hashlib.sha256(salt.encode()).digest()  # Key 32 bytes
+        self.key = hashlib.sha256(key.encode()).digest()  # Key 32 bytes
         self.prefix_nonce = self.key[-14:]
 
     def encrypt(self, data: str) -> str:
@@ -46,7 +46,7 @@ class BaseCipher:
 
 
 if __name__ == '__main__':
-    bc = BaseCipher(salt="Keep it secret")
+    bc = BaseCipher(key="Keep it secret")
     plaintext = "Hello world!"
 
     encrypted = bc.encrypt(plaintext)
