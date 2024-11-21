@@ -1,7 +1,7 @@
 # Base Cipher
 
 Base Cipher is a lightweight Python library for encryption and decryption, designed for the specific purpose of obfuscating original data by securely encrypting strings. Key highlights include:
-- **Salt support**: Derive encryption keys securely using a user-defined salt.
+- **Key support**: Derive encryption keys securely using a user-defined key.
 - **Compact output**: Produces short, Base58-encoded results ideal for sharing, storing or reading (does not contain special characters).
 - **Strong security**: Implements AES encryption with robust key derivation.
 
@@ -20,7 +20,7 @@ Encrypt and decrypt text with ease using the BaseCipher class:
 ```python
 from basecipher import BaseCipher
 
-# Initialize with a secret salt
+# Initialize with a secret key
 bc = BaseCipher(key="Keep it secret")
 plaintext = "Hello world!"
 
